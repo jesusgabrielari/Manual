@@ -1,0 +1,40 @@
+<%= form_with(model: group, local: true) do |f| %>
+  <% if group.errors.any? %>
+    <div id = 'error_explanation'>
+      <h2>Este Grupo no se pudo crear por las siguientes razones</h2>
+      <ul>
+        <% group.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name, "Nombre" %>
+    <%= f.text_field :name, placeholder: "el re nombre", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :crew, "Integrantes" %>
+    <%= f.number_field :crew, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :group_type, "Tipo" %>
+    <%= f.select :group_type, options_for_select(@types),{:include_blank => true}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :style, "Estilo" %>
+    <%= f.select :style, options_for_select(@styles),{:include_blank => true}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :status, "En que anda" %>
+    <%= f.select :status, options_for_select(@statuses),{:include_blank => true}, class: 'form-control' %>
+  </div>
+
+  <div class = 'actions'>
+    <%= f.submit %>
+  </div>
+<% end %>

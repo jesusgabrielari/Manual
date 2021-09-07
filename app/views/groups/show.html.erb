@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Integrantes</strong>
+  <%= @group.crew %>
+</p>
+
+<p>
+  <strong>Estilo</strong>
+  <%= @group.style %>
+</p>
+
+<p>
+  <strong>En que anda</strong>
+  <%= @group.status %>
+</p>
+
+<p>
+  <strong>Tipo de Grupo:</strong>
+  <%= @group.group_type %>
+</p>
+
+<%= link_to 'Ir al root', root_path %>

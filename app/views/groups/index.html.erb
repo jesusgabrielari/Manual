@@ -1,0 +1,34 @@
+<%= render 'shared/navbar' %>
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th><%= sort_link(@q, :crew, 'Integrantes') %></th>
+        <th>Tipo</th>
+        <th>Estilo</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr> 
+          <td><%= group.name %></td>
+          <td><%= group.crew %></td>
+          <td><%= group.group_type %></td>
+          <td><%= group.style %></td>
+          <td><%= group.status %></td>
+          <td><%= link_to 'Show', group %></td>
+          <td><%= link_to 'Edit', group_edit_path(group.id) %></td>
+          <td><%= link_to 'Destroy', group, method: :delete, data: {confirm: 'Seguro?'} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Crear nuevo Grupo', groups_new_path, class: 'btn btn-success' %>
+</div>
